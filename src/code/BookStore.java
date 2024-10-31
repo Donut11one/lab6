@@ -6,23 +6,27 @@ public class BookStore<T extends Literature> {
     private final List<T> items = new ArrayList<>();
 
     // Method to add an item
-    public void addItem(T item) {
+    public void addItem(final T item)
+    {
         items.add(item);
     }
 
     // Method to print all items' titles
-    public void printItems() {
-        for (T item : items) {
+    public void printItems()
+    {
+        for (T item : items)
+        {
             System.out.println(item.getTitle());
         }
     }
 
-    public List<T> getItems() {
+    public List<T> getItems()
+    {
         return items;
     }
 
     // Lambda: Print book titles that match a specific title
-    public void printBookTitle(String title) {
+    public void printBookTitle(final String title) {
         items.forEach(item -> {
             if (item.getTitle().contains(title)) {
                 System.out.println(item.getTitle());
@@ -37,7 +41,7 @@ public class BookStore<T extends Literature> {
     }
 
     // PECS Principle: Add novels to a collection
-    public void addNovelsToCollection(List<? super Novel> novelCollection) {
+    public void addNovelsToCollection(final List<? super Novel> novelCollection) {
         for (T item : items) {
             if (item instanceof Novel) {
                 novelCollection.add((Novel) item);
@@ -46,17 +50,23 @@ public class BookStore<T extends Literature> {
     }
 
     // Static Nested Class
-    public static class BookStoreInfo {
-        public void displayInfo(String storeName, int itemCount) {
+    public static class BookStoreInfo
+    {
+        public void displayInfo(final String storeName,
+                                final int itemCount)
+        {
             System.out.println("BookStore: " + storeName + ", Items: " + itemCount);
         }
     }
 
     // Inner Class for Novel Statistics
-    public class NovelStatistics {
-        public double averageTitleLength() {
+    public class NovelStatistics
+    {
+        public double averageTitleLength()
+        {
             int totalLength = 0;
-            for (T item : items) {
+            for (T item : items)
+            {
                 totalLength += item.getTitle().length();
             }
             return (double) totalLength / items.size();

@@ -2,8 +2,10 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class main {
-    public static void main(String[] args) {
+public class main
+{
+    public static void main(final String[] args)
+    {
         // Create a BookStore that stores all types of Literature
         BookStore<Literature> store = new BookStore<>();
 
@@ -41,9 +43,12 @@ public class main {
 
         // Sort books by title length using an anonymous inner class
         System.out.println("\nTitles sorted by length:");
-        store.getItems().sort(new Comparator<Literature>() {
+
+        store.getItems().sort(new Comparator<Literature>()
+        {
             @Override
-            public int compare(Literature o1, Literature o2) {
+            public int compare(Literature o1, Literature o2)
+            {
                 return Integer.compare(o1.getTitle().length(), o2.getTitle().length());
             }
         });

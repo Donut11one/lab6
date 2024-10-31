@@ -1,6 +1,6 @@
 public class Magazine extends Literature
 {
-    private String title;
+    private final String title;
 
     public Magazine(final String title)
     {
